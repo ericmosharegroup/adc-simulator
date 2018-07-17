@@ -1,0 +1,26 @@
+version = ''
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+war.archiveName = "adc-simulator.war"
+dependencies {
+    providedCompile('javax.servlet:javax.servlet-api:3.0.1')
+
+    compile('ch.qos.logback:logback-core:1.1.11')
+    compile('ch.qos.logback:logback-classic:1.1.11')
+    compile('commons-io:commons-io:1.4')
+    //compile("com.squareup.okhttp3:okhttp:3.3.1")
+    //compile('org.apache.commons:com.springsource.org.apache.commons.codec:1.6.0')
+    compile("org.springframework:spring-webmvc:4.0.5.RELEASE")
+    compile('com.alibaba:fastjson:1.2.29')
+    //compile('org.apache.taglibs:taglibs-standard-jstlel:1.2.1')
+    //compile('joda-time:joda-time:2.4')
+
+}
